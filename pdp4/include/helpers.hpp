@@ -1,0 +1,11 @@
+void bfs(queue<STATE> & q, const unsigned limit, const DATA & data);
+STATE createNextState(const STATE & prev, const short indicator, const DATA & data);
+WEIGHT getWeight(const STATE & state, const DATA & data);
+int getEstimatedWeight(const STATE & state, const DATA & data);
+void initializeGlobalVariables(SOLUTION & best, const DATA & data);
+void deleteGlobalVariables(SOLUTION & best, DATA & data);
+vector<short> serializeState(const STATE & state, const DATA & data);
+STATE deserializeState(vector<short> & serializedState, const DATA & data);
+vector<int> serializeSolution(const SOLUTION & best, const DATA & data);
+SOLUTION deserializeSolution(vector<int> & serializedSolution, const DATA & data);
+void outputResult(const SOLUTION & best, const double real_time, const double cpu_time, const DATA & data);

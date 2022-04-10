@@ -4,22 +4,22 @@
 
 using namespace std;
 
-#include "../include/constants.h"
-#include "../include/loader.h"
+#include "../include/constants.hpp"
+#include "../include/loader.hpp"
 
-DATA runLoader(string filePath, int a)
+DATA runLoader(const string filePath, const short a)
 {
   // Read from the text file
   ifstream file(DATA_FOLDER + filePath);
 
   // Load the number of vertices
-  int numOfVertices;
+  short numOfVertices;
   file >> numOfVertices;
 
   // Initialize the matrix of edges
-  int** matOfEdges = new int*[numOfVertices];
+  short** matOfEdges = new short*[numOfVertices];
   for (int i = 0; i < numOfVertices; i++)
-    matOfEdges[i] = new int[numOfVertices];
+    matOfEdges[i] = new short[numOfVertices];
 
   // Load the matrix of edges
   for (int i = 0; i < numOfVertices; i++)
@@ -29,5 +29,5 @@ DATA runLoader(string filePath, int a)
   // Close the text file
   file.close();
 
-  return { numOfVertices, a, matOfEdges };
+  return {numOfVertices, a, matOfEdges};
 } // RUN LOADER
